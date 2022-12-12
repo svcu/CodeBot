@@ -1,5 +1,6 @@
 const { ModalBuilder, TextInputBuilder, ActionRowBuilder, ButtonBuilder } = require("@discordjs/builders");
 const {Client, GatewayIntentBits, TextInputStyle, Events, ButtonStyle, REST, Routes, mergeDefault} = require("discord.js");
+require("dotenv").config()
 
 const client = new Client({intents: [
     GatewayIntentBits.Guilds,
@@ -7,7 +8,7 @@ const client = new Client({intents: [
     GatewayIntentBits.MessageContent
 ]})
 
-const rest = new REST({version: "10"}).setToken("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.G7rckY.4Xk-BTq71wYY7qxyhW6pLz1oIWujgt2RSk7nEQ")
+const rest = new REST({version: "10"}).setToken(process.env.TOKEN)
 
 
 async function cmd(){
@@ -23,7 +24,7 @@ async function cmd(){
 
 
 
-client.login("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.G7rckY.4Xk-BTq71wYY7qxyhW6pLz1oIWujgt2RSk7nEQ");
+client.login(process.env.TOKEN);
 
 cmd().then(res=>{console.log(res)}).catch(e=>{console.log(e)})
 
