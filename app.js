@@ -1,7 +1,12 @@
 const { ModalBuilder, TextInputBuilder, ActionRowBuilder, ButtonBuilder } = require("@discordjs/builders");
 const {Client, GatewayIntentBits, TextInputStyle, Events, ButtonStyle, REST, Routes, mergeDefault} = require("discord.js");
 const http = require("http")
+const app = require("express")();
 require("dotenv").config()
+
+app.listen(process.env.PORT, ()=>{
+    console.log("Server running")
+})
 
 
 const client = new Client({intents: [
