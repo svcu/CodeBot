@@ -4,7 +4,10 @@ const http = require("http")
 const app = require("express")();
 require("dotenv").config()
 
-app.listen(process.env.PORT, ()=>{
+const { InteractionType, InteractionResponseType, verifyKeyMiddleware } = require('discord-interactions');
+
+
+app.listen(8999, ()=>{
     console.log("Server running")
 })
 
@@ -26,6 +29,13 @@ async function cmd(){
                 description: "Pregunta por un algoritmo"
             }
         ]
+    })
+
+    await rest.post(Routes.interactionCallback(), {
+        body:{type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+            data:{
+              content:'👍'
+            }}
     })
 }
 
@@ -69,4 +79,14 @@ client.login(process.env.TOKEN);
 
 
 cmd().then(res=>{console.log(res)}).catch(e=>{console.log(e)})
+
+app.post("/interactions", (req, res)=>{
+    res.send({
+        // https://discord.com/developers/docs/interactions/receiving-and-responding#responding-to-an-interaction
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data:{
+          content:'👍'
+        }
+      });
+})
 
