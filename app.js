@@ -23,9 +23,14 @@ async function cmd(){
 }
 
 
+client.on("ready", ()=>{
+    console.log("Ready to work")
+})
+
+
 
 client.login(process.env.TOKEN);
 
+
 cmd().then(res=>{console.log(res)}).catch(e=>{console.log(e)})
 
-console.log(client.servers)
