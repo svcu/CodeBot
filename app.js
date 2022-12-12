@@ -7,7 +7,7 @@ const client = new Client({intents: [
     GatewayIntentBits.MessageContent
 ]})
 
-const rest = new REST({version: "10"}).setToken("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.GOSdey.4u0o_hDT2t27wDpjjqgXw-vPeWSawJnEwCSw5M")
+const rest = new REST({version: "10"}).setToken("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.G7rckY.4Xk-BTq71wYY7qxyhW6pLz1oIWujgt2RSk7nEQ")
 
 
 async function cmd(){
@@ -23,7 +23,7 @@ async function cmd(){
 
 
 
-client.login("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.GOSdey.4u0o_hDT2t27wDpjjqgXw-vPeWSawJnEwCSw5M");
+client.login("MTA1MTU2NzM3MTQ1MTY0MTk4Nw.G7rckY.4Xk-BTq71wYY7qxyhW6pLz1oIWujgt2RSk7nEQ");
 
 cmd().then(res=>{console.log(res)}).catch(e=>{console.log(e)})
 
