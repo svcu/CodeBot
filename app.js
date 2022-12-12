@@ -31,12 +31,7 @@ async function cmd(){
         ]
     })
 
-    await rest.post(Routes.interactionCallback(), {
-        body:{type: InteractionResponseType.,
-            data:{
-              content:'👍'
-            }}
-    })
+  
 }
 
 
@@ -44,9 +39,6 @@ client.on("ready", ()=>{
     console.log("Ready to work")
 })
 
-client.on("messageCreate", msg=>{
-    msg.reply("Hi")
-})
 
 client.on(Events.InteractionCreate, async interaction=>{
     if(interaction.isChatInputCommand()){
@@ -64,15 +56,44 @@ client.on(Events.InteractionCreate, async interaction=>{
 
         const ar = new ActionRowBuilder().setComponents(txt);
 
-        modal.addComponents(txt);
+        modal.addComponents(ar);
 
         await interaction.showModal(modal);
-        /*
+        
         client.on("interactionCreate", async interaction=>{
             if(!interaction.isModalSubmit()) return;
 
-            const algo_input = interaction.
-        })*/
+            const algo_input = interaction.fields.getTextInputValue("alg_input")
+            
+            let repl;
+
+            if(algo_input=="for"){
+                repl = `
+                for(int i=0; i<n; i++){
+                    //Codigo
+                }`
+
+                interaction.reply({content: repl})
+            }else if(algo_input=="if"){
+                repl = `
+                    if(condicion){
+                        //Codigo
+                    }
+                `
+
+                interaction.reply({content: repl})
+            }else if(algo_input=="while"){
+                repl = `
+                    while(condicion){
+                        //Codigo
+                    }
+                `
+
+                interaction.reply({content: repl})
+            }
+
+            
+        })
 
     }
 })
