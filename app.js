@@ -27,6 +27,29 @@ client.on("ready", ()=>{
     console.log("Ready to work")
 })
 
+client.on("interactionCreate", async interaction=>{
+    if(interaction.isChatInputCommand()){
+        console.log("Interactions Working");
+
+        const modal = new ModalBuilder()
+                          .setCustomId("modal")
+                          .setTitle("Que algoritmo deseas?")
+                          
+        const txt = new TextInputBuilder()
+                        .setLabel("Pregunta por un algoritmo")
+                        .setCustomId("alg_input")
+                        .setPlaceholder("Ejemplo: Segment Tree")
+                        .setStyle(TextInputStyle.Short)
+
+        const ar = new ActionRowBuilder().setComponents(txt);
+
+        modal.addComponents(txt);
+
+        await interaction.showModal(modal);
+
+    }
+})
+
 
 
 client.login(process.env.TOKEN);
