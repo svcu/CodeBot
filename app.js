@@ -1,6 +1,8 @@
 const { ModalBuilder, TextInputBuilder, ActionRowBuilder, ButtonBuilder } = require("@discordjs/builders");
 const {Client, GatewayIntentBits, TextInputStyle, Events, ButtonStyle, REST, Routes, mergeDefault} = require("discord.js");
+const http = require("http")
 require("dotenv").config()
+
 
 const client = new Client({intents: [
     GatewayIntentBits.Guilds,
@@ -46,6 +48,12 @@ client.on("interactionCreate", async interaction=>{
         modal.addComponents(txt);
 
         await interaction.showModal(modal);
+        /*
+        client.on("interactionCreate", async interaction=>{
+            if(!interaction.isModalSubmit()) return;
+
+            const algo_input = interaction.
+        })*/
 
     }
 })
