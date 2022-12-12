@@ -15,7 +15,7 @@ app.listen(8999, ()=>{
 const client = new Client({intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
+    GatewayIntentBits.MessageContent,
 ]})
 
 const rest = new REST({version: "10"}).setToken(process.env.TOKEN)
@@ -32,7 +32,7 @@ async function cmd(){
     })
 
     await rest.post(Routes.interactionCallback(), {
-        body:{type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        body:{type: InteractionResponseType.,
             data:{
               content:'👍'
             }}
@@ -44,7 +44,11 @@ client.on("ready", ()=>{
     console.log("Ready to work")
 })
 
-client.on("interactionCreate", async interaction=>{
+client.on("messageCreate", msg=>{
+    msg.reply("Hi")
+})
+
+client.on(Events.InteractionCreate, async interaction=>{
     if(interaction.isChatInputCommand()){
         console.log("Interactions Working");
 
