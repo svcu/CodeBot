@@ -1,0 +1,3 @@
+MTA1MTU2NzM3MTQ1MTY0MTk4Nw.GOSdey.4u0o_hDT2t27wDpjjqgXw-vPeWSawJnEwCSw5M
+
+https://discord.com/api/oauth2/authorize?client_id=1051567371451641987&permissions=2147485696&scope=applications.commands%20bot
